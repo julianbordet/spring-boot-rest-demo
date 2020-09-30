@@ -11,4 +11,9 @@ This is a Spring Boot - Hibernate REST API demo (using mysql). Once running you 
      
 # Spring Data JPA
   
-There's a branch that replaces Hibernate with Spring Data JPA 
+There's a branch that replaces Hibernate with Spring Data JPA   
+   
+# Spring Data Rest  
+   
+The Spring Data Rest dependency provides a REST implementation without the need to use the previous Service and Rest classes. Only needs the base Entity Employee and the EmployeeRepository class. See branch called: spring-data-JPA-rest-demo.  
+
