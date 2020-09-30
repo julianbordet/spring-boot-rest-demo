@@ -1,6 +1,6 @@
 # spring-boot-rest-demo
   
-This is a Spring Boot - Hibernate REST API demo (using mysql). Once running you can access:  
+This is a Spring Boot - Hibernate REST API demo (using mysql). Once running (master branch) you can access:  
   
   GET - /api/employees to get a list of all employees.   
   GET - /api/employees/your_int to get an employee by Id number.   
@@ -11,9 +11,9 @@ This is a Spring Boot - Hibernate REST API demo (using mysql). Once running you 
      
 # Spring Data JPA
   
-There's a branch that replaces Hibernate with Spring Data JPA   
+The branch called spring-data-JPA-demo replaces Hibernate with Spring Data JPA.   
    
 # Spring Data Rest  
    
-The Spring Data Rest dependency provides a REST implementation without the need to use the previous Service and Rest classes. Only needs the base Entity Employee and the EmployeeRepository class. See branch called: spring-data-JPA-rest-demo.  
+The Spring Data Rest dependency provides a REST implementation without the need to use the previous Service and Rest classes. Only needs the base Entity Employee and the EmployeeRepository class. See branch called: spring-data-JPA-rest-demo. Note: if running a local server the endpoint is the following: http://localhost:8080/employees.
 
