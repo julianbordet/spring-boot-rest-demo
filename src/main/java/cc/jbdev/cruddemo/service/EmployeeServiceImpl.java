@@ -1,44 +1,54 @@
 package cc.jbdev.cruddemo.service;
 
 import cc.jbdev.cruddemo.dao.EmployeeDAO;
+import cc.jbdev.cruddemo.dao.EmployeeRepository;
 import cc.jbdev.cruddemo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeDAO employeeDAO;
+    private EmployeeRepository employeeRepository;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
+    //JpaRepository provides the @transactional functionality, so dont need the annotation
     @Override
-    @Transactional
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeRepository.findAll();
     }
 
     @Override
-    @Transactional
     public Employee findById(int theId) {
-        return employeeDAO.findById(theId);
+
+        Optional<Employee> result = employeeRepository.findById(theId);
+
+        Employee theEmployee = null;
+
+        if (result.isPresent()){
+            theEmployee = result.get();
+        } else {
+            throw new RuntimeException("Did not find employee id - " + theId);
+        }
+
+        return theEmployee;
     }
 
     @Override
-    @Transactional
     public void save(Employee theEmployee) {
-        employeeDAO.save(theEmployee);
+        employeeRepository.save(theEmployee);
     }
 
     @Override
-    @Transactional
     public void delete(int theId) {
-        employeeDAO.deleteById(theId);
+        employeeRepository.deleteById(theId);
     }
 }

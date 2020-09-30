@@ -71,7 +71,7 @@ public class EmployeeRestController {
     public Employee deleteEmployee(@RequestBody Employee theEmployee){
 
         employeeService.delete(theEmployee.getId());
-        
+
         return theEmployee;
 
     }
